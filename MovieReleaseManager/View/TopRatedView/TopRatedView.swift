@@ -80,11 +80,8 @@ struct TopRatedView: View {
                 .refreshable(action: {
                     await observed.reloadTopRated()
                 })
-                .navigationBarTitle("Top Rated", displayMode: .inline)
-                .background(NavigationConfigurator { nc in
-                    nc.navigationBar.barTintColor = .blue
-                    nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white]
-                })
+                .navigationBarTitle("Top Rated", displayMode: .automatic)
+               
                 
             }
             .navigationViewStyle(StackNavigationViewStyle())
@@ -129,11 +126,8 @@ struct TopRatedView: View {
                 .refreshable(action: {
                     await observed.reloadTopRated()
                 })
-                .navigationBarTitle("Top Rated", displayMode: .inline)
-                .background(NavigationConfigurator { nc in
-                    nc.navigationBar.barTintColor = .blue
-                    nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white]
-                })
+                .navigationBarTitle("Top Rated", displayMode: .automatic)
+               
                 
             }
             .navigationViewStyle(StackNavigationViewStyle())
@@ -144,7 +138,7 @@ struct TopRatedView: View {
     private func addItem(id: Int, posterPath: String, releaseDate: String, title: String, overview: String, type: String) {
         withAnimation {
             
-            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MovieListPopular")
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: Constants.entityMoviePopular)
             fetchRequest.predicate = NSPredicate(format: "id = %d", id)
             var results: [NSManagedObject] = []
             do {
@@ -161,8 +155,6 @@ struct TopRatedView: View {
                     do {
                         try viewContext.save()
                     } catch {
-                        // Replace this implementation with code to handle the error appropriately.
-                        // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                         let nsError = error as NSError
                         fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
                     }

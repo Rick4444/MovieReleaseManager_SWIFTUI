@@ -31,12 +31,7 @@ struct MovieDetailsView: View {
         self.title = title
         self.lblDesc = lblDesc
         self.imageUrl = imageUrl
-        
-        print(movieId)
-        
-        
     }
-    let youtubeId = "3jXy8RUVVZU"
     
     @State var comment: String = ""
     
@@ -68,7 +63,6 @@ struct MovieDetailsView: View {
                     Divider()
                     HStack {
                         Button("Watch Trailer") {
-                            print("Button tapped!")
                             if let youtubeURL = URL(string: "youtube://\(observed.movieTralerLink[0].Key ?? "")"),
                                UIApplication.shared.canOpenURL(youtubeURL) {
                                 // redirect to app
@@ -111,21 +105,19 @@ struct MovieDetailsView: View {
                     
                     if showText {
                         TextField("Comment here", text: $comment, onEditingChanged: { (changed) in
-                            print("Username onEditingChanged - \(comment)")
                             if comment != "" {
                                 addComment(comment: comment)
                                 showText.toggle()
                             }
                             
                         }) {
-                            print("Username onCommit")
                         }
                         .padding()
                     }
                     
                     Spacer()
                 } .onAppear(){
-                    let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MovieComment")
+                    let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: Constants.entityComment)
                     fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
                     fetchRequest.predicate = NSPredicate(format: "movieid = \(movieId)" )
                     var results: [NSManagedObject] = []
@@ -144,6 +136,8 @@ struct MovieDetailsView: View {
                 observed.getMovieData(id: movieId)
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
+
     }
     private func addComment(comment: String) {
         withAnimation {
@@ -156,8 +150,6 @@ struct MovieDetailsView: View {
             do {
                 try viewContext.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }

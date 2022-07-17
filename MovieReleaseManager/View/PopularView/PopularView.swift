@@ -11,12 +11,21 @@ import SDWebImageSwiftUI
 import Network
 
 @available(iOS 15.0, *)
+struct PopularView : View {
+    
+    var body: some View {
+        popularCreateView()
+    }
+}
 
-struct PopularView: View {
+@available(iOS 15.0, *)
+struct popularCreateView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject private var viewModel = Observer()
     
+    @State private var activeNavigation = false
+
     
     @FetchRequest(
         sortDescriptors: [],
@@ -45,7 +54,7 @@ struct PopularView: View {
             NavigationView {
                 
                 List(observed.movieListData) { val in
-                    NavigationLink(destination: MovieDetailsView(movieId: val.id ?? 0, title: val.title ?? "", lblDesc: val.overview ?? "", imageUrl: "\(Constants.imageBaseURL)\(val.posterPath ?? "")")) {
+                    NavigationLink(destination: MovieDetailsView(movieId: val.id ?? 0, title: val.title ?? "", lblDesc: val.overview ?? "", imageUrl: "\(Constants.imageBaseURL)\(val.posterPath ?? "")"), isActive: $activeNavigation) {
                         HStack(alignment: .center, spacing: 0) {
                             let url = "\(Constants.imageBaseURL)\(val.posterPath ?? "")"
                             WebImage(url: URL(string: url))
@@ -85,14 +94,10 @@ struct PopularView: View {
                 .refreshable(action: {
                     await observed.reloadPopular()
                 })
-                .navigationBarTitle("Popular", displayMode: .inline)
-                .background(NavigationConfigurator { nc in
-                    nc.navigationBar.barTintColor = .blue
-                    nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white]
-                })
-                
+                .navigationBarTitle("Popular", displayMode: .large)
+                .navigationViewStyle(StackNavigationViewStyle())
+
             }
-            .navigationViewStyle(StackNavigationViewStyle())
         }
         else{
             //Offline
@@ -137,12 +142,7 @@ struct PopularView: View {
                 })
                 
                 
-                .navigationBarTitle("Popular", displayMode: .inline)
-                .background(NavigationConfigurator { nc in
-                    nc.navigationBar.barTintColor = .blue
-                    nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white]
-                })
-                
+                .navigationBarTitle("Popular", displayMode: .large)                
             }
             .navigationViewStyle(StackNavigationViewStyle())
             
@@ -155,7 +155,7 @@ struct PopularView: View {
     private func addItem(id: Int, posterPath: String, releaseDate: String, title: String, overview: String, type: String) {
         withAnimation {
             
-            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MovieListPopular")
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: Constants.entityMoviePopular)
             fetchRequest.predicate = NSPredicate(format: "id = %d", id)
             var results: [NSManagedObject] = []
             do {
@@ -172,8 +172,6 @@ struct PopularView: View {
                     do {
                         try viewContext.save()
                     } catch {
-                        // Replace this implementation with code to handle the error appropriately.
-                        // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                         let nsError = error as NSError
                         fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
                     }
@@ -189,6 +187,7 @@ struct PopularView: View {
     }
 }
 
+
 @available(iOS 15.0, *)
 struct PopularView_Previews: PreviewProvider {
     static var previews: some View {
@@ -196,17 +195,3 @@ struct PopularView_Previews: PreviewProvider {
     }
 }
 
-
-struct NavigationConfigurator: UIViewControllerRepresentable {
-    var configure: (UINavigationController) -> Void = { _ in }
-    
-    func makeUIViewController(context: UIViewControllerRepresentableContext<NavigationConfigurator>) -> UIViewController {
-        UIViewController()
-    }
-    func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<NavigationConfigurator>) {
-        if let nc = uiViewController.navigationController {
-            self.configure(nc)
-        }
-    }
-    
-}

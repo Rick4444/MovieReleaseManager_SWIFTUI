@@ -16,5 +16,7 @@ import SwiftUI
     static let dataLanguage = "en-US"
     static let imageBaseURL = "https://image.tmdb.org/t/p/original/"
     static let youTubeVideoLink = "https://www.youtube.com/watch?v="
+    static let entityMoviePopular = "MovieListPopular"
+    static let entityComment = "MovieComment"
 
 }

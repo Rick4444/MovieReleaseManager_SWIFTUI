@@ -16,7 +16,7 @@ enum HTTPStatusCode: Int {
 
 
 
-class Observer : ObservableObject {
+final class Observer : ObservableObject {
     
     @Published var movieListData = [MovieListData]()
     @Published var topRatedMovieListData = [TopRatedMovieListData]()

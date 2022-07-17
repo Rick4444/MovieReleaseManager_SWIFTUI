@@ -11,6 +11,9 @@ import CoreData
 
 struct ContentView: View {
     
+    init() {
+        }
+    
     @StateObject var viewRouter = ViewRouter()
     
     var body: some View {
