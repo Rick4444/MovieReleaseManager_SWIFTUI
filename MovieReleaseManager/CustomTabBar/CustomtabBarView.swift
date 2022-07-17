@@ -19,16 +19,15 @@ struct CustomtabBarView: View {
                 Spacer()
                 switch viewRouter.currentPage {
                 case .popular:
-                    Text("Popular")
+                    PopularView()
                 case .toprated:
-                    Text("Top Rated")
-                    
+                    TopRatedView()
                 }
                 Spacer()
                 
                 HStack {
-                    TabBarIcon(viewRouter: viewRouter, assignedPage: .popular, width: geometry.size.width/2, height: geometry.size.height/28, systemIconName: "homekit", tabName: "Popular")
-                    TabBarIcon(viewRouter: viewRouter, assignedPage: .toprated, width: geometry.size.width/2, height: geometry.size.height/28, systemIconName: "heart", tabName: "Top Rated")
+                    TabBarIcon(viewRouter: viewRouter, assignedPage: .popular, width: geometry.size.width/2, height: geometry.size.height/28, systemIconName: "popular", tabName: "Popular")
+                    TabBarIcon(viewRouter: viewRouter, assignedPage: .toprated, width: geometry.size.width/2, height: geometry.size.height/28, systemIconName: "toprated", tabName: "Top Rated")
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height/8)
                 .background(Color("TabBarBackground").shadow(radius: 2))
@@ -50,7 +49,7 @@ struct TabBarIcon: View {
     
     var body: some View {
         VStack {
-            Image(systemName: systemIconName)
+            Image(systemIconName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: width, height: height)

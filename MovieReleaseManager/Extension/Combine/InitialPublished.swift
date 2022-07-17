@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-@propertyWrapper // @propertyDelegate
+@propertyWrapper
 struct InitialPublished<Value>: Publisher {
     typealias Output = Value
     typealias Failure = Never
