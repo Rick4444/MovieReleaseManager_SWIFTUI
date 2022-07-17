@@ -16,6 +16,15 @@
 		983C55E62883EB420013491C /* MovieReleaseManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983C55E52883EB420013491C /* MovieReleaseManagerTests.swift */; };
 		983C55F02883EB420013491C /* MovieReleaseManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983C55EF2883EB420013491C /* MovieReleaseManagerUITests.swift */; };
 		983C55F22883EB420013491C /* MovieReleaseManagerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983C55F12883EB420013491C /* MovieReleaseManagerUITestsLaunchTests.swift */; };
+		983C56042883ED1A0013491C /* MoviewDetailViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983C56032883ED1A0013491C /* MoviewDetailViewModal.swift */; };
+		983C56082883ED7B0013491C /* MovieReleaseModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983C56072883ED7B0013491C /* MovieReleaseModal.swift */; };
+		983C56102883EE0A0013491C /* UIButton+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983C560F2883EE0A0013491C /* UIButton+Validation.swift */; };
+		983C56122883EE4A0013491C /* UIColor+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983C56112883EE4A0013491C /* UIColor+Colors.swift */; };
+		983C56142883EF250013491C /* InitialPublished.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983C56132883EF250013491C /* InitialPublished.swift */; };
+		983C56162883EF680013491C /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 983C56152883EF670013491C /* ColorAssets.xcassets */; };
+		983C561E2883F0E90013491C /* PopularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983C561D2883F0E90013491C /* PopularView.swift */; };
+		983C562B2883FAC90013491C /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983C562A2883FAC90013491C /* ViewRouter.swift */; };
+		983C562D2883FCC30013491C /* CustomtabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983C562C2883FCC30013491C /* CustomtabBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +57,15 @@
 		983C55EB2883EB420013491C /* MovieReleaseManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieReleaseManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		983C55EF2883EB420013491C /* MovieReleaseManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieReleaseManagerUITests.swift; sourceTree = "<group>"; };
 		983C55F12883EB420013491C /* MovieReleaseManagerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieReleaseManagerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		983C56032883ED1A0013491C /* MoviewDetailViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviewDetailViewModal.swift; sourceTree = "<group>"; };
+		983C56072883ED7B0013491C /* MovieReleaseModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieReleaseModal.swift; sourceTree = "<group>"; };
+		983C560F2883EE0A0013491C /* UIButton+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Validation.swift"; sourceTree = "<group>"; };
+		983C56112883EE4A0013491C /* UIColor+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Colors.swift"; sourceTree = "<group>"; };
+		983C56132883EF250013491C /* InitialPublished.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialPublished.swift; sourceTree = "<group>"; };
+		983C56152883EF670013491C /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
+		983C561D2883F0E90013491C /* PopularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularView.swift; sourceTree = "<group>"; };
+		983C562A2883FAC90013491C /* ViewRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
+		983C562C2883FCC30013491C /* CustomtabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomtabBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,9 +116,16 @@
 		983C55CE2883EB400013491C /* MovieReleaseManager */ = {
 			isa = PBXGroup;
 			children = (
+				983C56272883F8F80013491C /* CustomTabBar */,
+				983C561A2883F0330013491C /* Shared */,
+				983C56012883EC920013491C /* Extension */,
+				983C55FE2883EC5E0013491C /* Modal */,
+				983C55FF2883EC680013491C /* View */,
+				983C56002883EC6D0013491C /* ViewModal */,
 				983C55CF2883EB400013491C /* MovieReleaseManagerApp.swift */,
 				983C55D12883EB400013491C /* ContentView.swift */,
 				983C55D32883EB420013491C /* Assets.xcassets */,
+				983C56152883EF670013491C /* ColorAssets.xcassets */,
 				983C55D82883EB420013491C /* Persistence.swift */,
 				983C55DA2883EB420013491C /* MovieReleaseManager.xcdatamodeld */,
 				983C55D52883EB420013491C /* Preview Content */,
@@ -132,6 +157,89 @@
 			);
 			path = MovieReleaseManagerUITests;
 			sourceTree = "<group>";
+		};
+		983C55FE2883EC5E0013491C /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				983C56072883ED7B0013491C /* MovieReleaseModal.swift */,
+			);
+			name = Modal;
+			path = MovieReleaseManager/Modal;
+			sourceTree = SOURCE_ROOT;
+		};
+		983C55FF2883EC680013491C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				983C561D2883F0E90013491C /* PopularView.swift */,
+			);
+			name = View;
+			path = MovieReleaseManager/View;
+			sourceTree = SOURCE_ROOT;
+		};
+		983C56002883EC6D0013491C /* ViewModal */ = {
+			isa = PBXGroup;
+			children = (
+				983C56032883ED1A0013491C /* MoviewDetailViewModal.swift */,
+			);
+			name = ViewModal;
+			path = MovieReleaseManager/ViewModal;
+			sourceTree = SOURCE_ROOT;
+		};
+		983C56012883EC920013491C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				983C56022883EC9A0013491C /* Combine */,
+				983C560E2883EDD70013491C /* UIColor */,
+				983C560D2883EDCF0013491C /* UIButton */,
+			);
+			name = Extension;
+			path = MovieReleaseManager/Extension;
+			sourceTree = SOURCE_ROOT;
+		};
+		983C56022883EC9A0013491C /* Combine */ = {
+			isa = PBXGroup;
+			children = (
+				983C56132883EF250013491C /* InitialPublished.swift */,
+			);
+			name = Combine;
+			path = MovieReleaseManager/Extension/Combine;
+			sourceTree = SOURCE_ROOT;
+		};
+		983C560D2883EDCF0013491C /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+				983C560F2883EE0A0013491C /* UIButton+Validation.swift */,
+			);
+			name = UIButton;
+			path = MovieReleaseManager/Extension/UIButton;
+			sourceTree = SOURCE_ROOT;
+		};
+		983C560E2883EDD70013491C /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				983C56112883EE4A0013491C /* UIColor+Colors.swift */,
+			);
+			name = UIColor;
+			path = MovieReleaseManager/Extension/UIColor;
+			sourceTree = SOURCE_ROOT;
+		};
+		983C561A2883F0330013491C /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Shared;
+			path = MovieReleaseManager/Shared;
+			sourceTree = SOURCE_ROOT;
+		};
+		983C56272883F8F80013491C /* CustomTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				983C562A2883FAC90013491C /* ViewRouter.swift */,
+				983C562C2883FCC30013491C /* CustomtabBarView.swift */,
+			);
+			name = CustomTabBar;
+			path = MovieReleaseManager/CustomTabBar;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -238,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				983C55D72883EB420013491C /* Preview Assets.xcassets in Resources */,
+				983C56162883EF680013491C /* ColorAssets.xcassets in Resources */,
 				983C55D42883EB420013491C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,7 +374,15 @@
 			files = (
 				983C55DC2883EB420013491C /* MovieReleaseManager.xcdatamodeld in Sources */,
 				983C55D92883EB420013491C /* Persistence.swift in Sources */,
+				983C56082883ED7B0013491C /* MovieReleaseModal.swift in Sources */,
+				983C562B2883FAC90013491C /* ViewRouter.swift in Sources */,
+				983C56042883ED1A0013491C /* MoviewDetailViewModal.swift in Sources */,
 				983C55D22883EB400013491C /* ContentView.swift in Sources */,
+				983C56122883EE4A0013491C /* UIColor+Colors.swift in Sources */,
+				983C562D2883FCC30013491C /* CustomtabBarView.swift in Sources */,
+				983C56142883EF250013491C /* InitialPublished.swift in Sources */,
+				983C56102883EE0A0013491C /* UIButton+Validation.swift in Sources */,
+				983C561E2883F0E90013491C /* PopularView.swift in Sources */,
 				983C55D02883EB400013491C /* MovieReleaseManagerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,6 +549,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -460,6 +578,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
