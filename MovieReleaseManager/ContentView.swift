@@ -7,16 +7,18 @@
 
 import SwiftUI
 import CoreData
+@available(iOS 15.0, *)
 
 struct ContentView: View {
     
     @StateObject var viewRouter = ViewRouter()
-        
+    
     var body: some View {
         CustomtabBarView(viewRouter: viewRouter)
     }
 }
 
+@available(iOS 15.0, *)
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

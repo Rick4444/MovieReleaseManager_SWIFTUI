@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct CustomtabBarView: View {
     
     @StateObject var viewRouter: ViewRouter
@@ -66,11 +67,11 @@ struct TabBarIcon: View {
     }
 }
 
-
+@available(iOS 15.0, *)
 struct CustomtabBarView_Previews: PreviewProvider {
     static var previews: some View {
         CustomtabBarView(viewRouter: ViewRouter())
             .preferredColorScheme(.light)
-
+        
     }
 }

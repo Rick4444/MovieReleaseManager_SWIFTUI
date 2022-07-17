@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9814747E2884422B003730D0 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 9814747D2884422B003730D0 /* SwiftyJSON */; };
 		981474812884432D003730D0 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981474802884432D003730D0 /* NetworkMonitor.swift */; };
+		9814748728847707003730D0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9814748628847707003730D0 /* Constants.swift */; };
+		9814748A288481CA003730D0 /* Alert&Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98147489288481CA003730D0 /* Alert&Toast.swift */; };
 		983C55D02883EB400013491C /* MovieReleaseManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983C55CF2883EB400013491C /* MovieReleaseManagerApp.swift */; };
 		983C55D22883EB400013491C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983C55D12883EB400013491C /* ContentView.swift */; };
 		983C55D42883EB420013491C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 983C55D32883EB420013491C /* Assets.xcassets */; };
@@ -52,6 +54,8 @@
 
 /* Begin PBXFileReference section */
 		981474802884432D003730D0 /* NetworkMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		9814748628847707003730D0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		98147489288481CA003730D0 /* Alert&Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert&Toast.swift"; sourceTree = "<group>"; };
 		983C55CC2883EB400013491C /* MovieReleaseManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieReleaseManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		983C55CF2883EB400013491C /* MovieReleaseManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieReleaseManagerApp.swift; sourceTree = "<group>"; };
 		983C55D12883EB400013491C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -112,6 +116,24 @@
 			);
 			name = NetworkManager;
 			path = MovieReleaseManager/Shared/NetworkManager;
+			sourceTree = SOURCE_ROOT;
+		};
+		98147485288476DE003730D0 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				9814748628847707003730D0 /* Constants.swift */,
+			);
+			name = Constants;
+			path = MovieReleaseManager/Shared/Constants;
+			sourceTree = SOURCE_ROOT;
+		};
+		98147488288481B3003730D0 /* Alert&Toast */ = {
+			isa = PBXGroup;
+			children = (
+				98147489288481CA003730D0 /* Alert&Toast.swift */,
+			);
+			name = "Alert&Toast";
+			path = "MovieReleaseManager/Shared/Alert&Toast";
 			sourceTree = SOURCE_ROOT;
 		};
 		983C55C32883EB400013491C = {
@@ -249,6 +271,8 @@
 		983C561A2883F0330013491C /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				98147488288481B3003730D0 /* Alert&Toast */,
+				98147485288476DE003730D0 /* Constants */,
 				9814747F2884423F003730D0 /* NetworkManager */,
 			);
 			name = Shared;
@@ -440,9 +464,11 @@
 				983C562B2883FAC90013491C /* ViewRouter.swift in Sources */,
 				983C56042883ED1A0013491C /* MoviewDetailViewModal.swift in Sources */,
 				983C55D22883EB400013491C /* ContentView.swift in Sources */,
+				9814748728847707003730D0 /* Constants.swift in Sources */,
 				981474812884432D003730D0 /* NetworkMonitor.swift in Sources */,
 				983C56122883EE4A0013491C /* UIColor+Colors.swift in Sources */,
 				983C56342884403D0013491C /* MovieDetailsView.swift in Sources */,
+				9814748A288481CA003730D0 /* Alert&Toast.swift in Sources */,
 				983C562D2883FCC30013491C /* CustomtabBarView.swift in Sources */,
 				983C56142883EF250013491C /* InitialPublished.swift in Sources */,
 				983C56102883EE0A0013491C /* UIButton+Validation.swift in Sources */,

@@ -8,6 +8,7 @@
 import SwiftUI
 
 @main
+@available(iOS 15.0, *)
 struct MovieReleaseManagerApp: App {
     let persistenceController = PersistenceController.shared
     

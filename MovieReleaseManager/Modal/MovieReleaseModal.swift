@@ -12,7 +12,7 @@ struct MovieList: Codable {
     let page: Int?
     let results: [Result]?
     let totalPages, totalResults: Int?
-
+    
     enum CodingKeys: String, CodingKey {
         case page, results
         case totalPages = "total_pages"
@@ -25,7 +25,7 @@ struct Result: Codable {
     let id: Int?
     let posterPath, releaseDate, title, overview: String?
     let video: Bool?
-
+    
     enum CodingKeys: String, CodingKey {
         case id
         case posterPath = "poster_path"
@@ -61,7 +61,7 @@ struct MovieDataResult: Codable {
     let type: String?
     let official: Bool?
     let id: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case iso639_1 = "iso_639_1"
         case iso3166_1 = "iso_3166_1"
@@ -75,6 +75,6 @@ struct MovieDataResult: Codable {
 struct MovieTrailerLink : Identifiable{
     public var id: Int?
     public var Key: String?
-   
+    
 }
 

@@ -10,10 +10,13 @@ import CoreData
 import SDWebImageSwiftUI
 import Network
 
+@available(iOS 15.0, *)
 
 struct PopularView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
+    @ObservedObject private var viewModel = Observer()
+    
     
     @FetchRequest(
         sortDescriptors: [],
@@ -42,9 +45,9 @@ struct PopularView: View {
             NavigationView {
                 
                 List(observed.movieListData) { val in
-                    NavigationLink(destination: MovieDetailsView(movieId: val.id ?? 0, title: val.title ?? "", lblDesc: val.overview ?? "", imageUrl: "https://image.tmdb.org/t/p/original/\(val.posterPath ?? "")")) {
+                    NavigationLink(destination: MovieDetailsView(movieId: val.id ?? 0, title: val.title ?? "", lblDesc: val.overview ?? "", imageUrl: "\(Constants.imageBaseURL)\(val.posterPath ?? "")")) {
                         HStack(alignment: .center, spacing: 0) {
-                            let url = "https://image.tmdb.org/t/p/original/\(val.posterPath ?? "")"
+                            let url = "\(Constants.imageBaseURL)\(val.posterPath ?? "")"
                             WebImage(url: URL(string: url))
                                 .onSuccess { image, data, cacheType in
                                 }
@@ -78,6 +81,10 @@ struct PopularView: View {
                         
                     }
                 }
+                
+                .refreshable(action: {
+                    await observed.reloadPopular()
+                })
                 .navigationBarTitle("Popular", displayMode: .inline)
                 .background(NavigationConfigurator { nc in
                     nc.navigationBar.barTintColor = .blue
@@ -90,12 +97,13 @@ struct PopularView: View {
         else{
             //Offline
             
+            
             NavigationView {
                 
                 List(items) { val in
-                    NavigationLink(destination: MovieDetailsView(movieId: Int(val.id ), title: val.title ?? "", lblDesc: val.overview ?? "", imageUrl: "https://image.tmdb.org/t/p/original/\(val.posterPath ?? "")")) {
+                    NavigationLink(destination: MovieDetailsView(movieId: Int(val.id ), title: val.title ?? "", lblDesc: val.overview ?? "", imageUrl: "\(Constants.imageBaseURL)\(val.posterPath ?? "")")) {
                         HStack(alignment: .center, spacing: 0) {
-                            let url = "https://image.tmdb.org/t/p/original/\(val.posterPath ?? "")"
+                            let url = "\(Constants.imageBaseURL)\(val.posterPath ?? "")"
                             WebImage(url: URL(string: url))
                                 .onSuccess { image, data, cacheType in
                                 }
@@ -124,6 +132,11 @@ struct PopularView: View {
                         }
                     }
                 }
+                .refreshable(action: {
+                    await observed.reloadPopular()
+                })
+                
+                
                 .navigationBarTitle("Popular", displayMode: .inline)
                 .background(NavigationConfigurator { nc in
                     nc.navigationBar.barTintColor = .blue
@@ -132,6 +145,9 @@ struct PopularView: View {
                 
             }
             .navigationViewStyle(StackNavigationViewStyle())
+            
+            
+            
         }
     }
     
@@ -173,6 +189,7 @@ struct PopularView: View {
     }
 }
 
+@available(iOS 15.0, *)
 struct PopularView_Previews: PreviewProvider {
     static var previews: some View {
         PopularView()
